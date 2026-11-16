@@ -5,10 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Peminjaman extends Model
 {
     use HasFactory;
 
-    protected $table = 'customers'; // Nama tabel di database MySQL
+    protected $table = 'peminjaman';
     protected $guarded = [];
+
+    public function buku()
+    {
+        return $this->belongsTo(Buku::class, 'buku_id');
+    }
 }
